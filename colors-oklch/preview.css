@@ -1,0 +1,5 @@
+*[style*="--color"] {
+   --l: clamp(0, (var(--l-threshold) / l - 1) * infinity, 1);
+   --readable-color: oklch(from var(--color) var(--l) 0 h);
+   color: var(--readable-color) !important;
+}

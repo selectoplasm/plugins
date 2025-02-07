@@ -1,0 +1,11 @@
+section#borders-preview {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+section#borders-preview div {
+   border-color: white;
+   margin: 1rem;
+   padding: 1rem;
+   display: inline-block;
+}

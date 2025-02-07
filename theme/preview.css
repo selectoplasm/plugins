@@ -1,0 +1,75 @@
+:root {
+   color-scheme: light dark;
+   font-family: system-ui;
+}
+
+section#theme-preview {
+   font-family: system-ui;
+   display: grid;
+
+   div {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+
+      article {
+         border: 3px solid var(--color-accent);
+         color: var(--color-text);
+         background-color: var(--color-background);
+         padding: 0;
+         border-radius: 0.5rem;
+         overflow: hidden;
+
+         header {
+            color: var(--color-accent);
+            font-weight: 700;
+            padding: 0.5rem;
+         }
+
+         p {
+            padding: 1rem;
+            color: var(--color-text);
+            margin: 0;
+            font-size: 0.9rem;
+         }
+
+         footer {
+            display: flex;
+         }
+
+         button {
+            flex-grow: 1;
+            background-color: var(--color-accent);
+            color: var(--color-text-invert);
+            margin: 0.25rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s ease-in-out;
+         }
+
+         button:hover {
+            transform: scale(1.05);
+         }
+
+         button.outline {
+            background-color: transparent;
+            color: var(--color-accent);
+         }
+
+         button.outline:hover {
+            border: 1px solid var(--color-accent);
+         }
+      }
+   }
+}
+
+.light {
+   color-scheme: light;
+}
+
+.dark {
+   color-scheme: dark;
+}
