@@ -34,14 +34,14 @@ function generateTokens(config) {
    return { html, designTokens: array }
 }
 
-const spacing = (i) => createUtilityClass(".s" + i, "--space", `var(--space-${i})`)
-const margin = (i) => createUtilityClass(".m" + i, "margin", `var(--space-${i})`)
-const marginX = (i) => createUtilityClass(".mx" + i, "margin-inline", `var(--space-${i})`)
-const marginY = (i) => createUtilityClass(".my" + i, "margin-block", `var(--space-${i})`)
-const padding = (i) => createUtilityClass(".p" + i, "padding", `var(--space-${i})`)
-const paddingX = (i) => createUtilityClass(".px" + i, "padding-inline", `var(--space-${i})`)
-const paddingY = (i) => createUtilityClass(".py" + i, "padding-block", `var(--space-${i})`)
-const gap = (i) => createUtilityClass(".g" + i, "gap", `var(--space-${i})`)
+const spacing = (i) => createUtilityClass(".s" + i, "--space", `--space-${i}`)
+const margin = (i) => createUtilityClass(".m" + i, "margin", `--space-${i}`)
+const marginX = (i) => createUtilityClass(".mx" + i, "margin-inline", `--space-${i}`)
+const marginY = (i) => createUtilityClass(".my" + i, "margin-block", `--space-${i}`)
+const padding = (i) => createUtilityClass(".p" + i, "padding", `--space-${i}`)
+const paddingX = (i) => createUtilityClass(".px" + i, "padding-inline", `--space-${i}`)
+const paddingY = (i) => createUtilityClass(".py" + i, "padding-block", `--space-${i}`)
+const gap = (i) => createUtilityClass(".g" + i, "gap", `--space-${i}`)
 
 const fns = [spacing, margin, marginX, marginY, padding, paddingX, paddingY, gap]
 

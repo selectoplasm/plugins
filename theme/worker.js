@@ -55,10 +55,10 @@ function addPatternClasses() {
    const classes = []
    categories.forEach(category => {
       classes.push(addPatternClass(`.${category}`, [
-         ["--color-accent", `var(--color-${category}-accent)`],
-         ["--color-background", `var(--color-${category}-background)`],
-         ["--color-text", `var(--color-${category}-text)`],
-         ["--color-text-invert", `var(--color-${category}-text-invert)`],
+         ["--color-accent", `--color-${category}-accent`],
+         ["--color-background", `--color-${category}-background`],
+         ["--color-text", `--color-${category}-text`],
+         ["--color-text-invert", `--color-${category}-text-invert`],
       ]))
    })
    return classes
