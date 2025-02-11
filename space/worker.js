@@ -34,7 +34,7 @@ function generateTokens(config) {
    return { html, designTokens: array }
 }
 
-const spacing = (i) => createUtilityClass(".s" + i, "--space", `--space-${i}`)
+const spacing = (i) => createUtilityClass(".s" + i, "space", `--space-${i}`)
 const margin = (i) => createUtilityClass(".m" + i, "margin", `--space-${i}`)
 const marginX = (i) => createUtilityClass(".mx" + i, "margin-inline", `--space-${i}`)
 const marginY = (i) => createUtilityClass(".my" + i, "margin-block", `--space-${i}`)
