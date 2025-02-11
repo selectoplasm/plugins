@@ -1,0 +1,81 @@
+.responsive-grid {
+   @property --minimum-main-width {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 750px;
+   }
+   
+   @property --maximum-sidebar-width {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 20rem;
+   }
+
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+
+   .sidebar {
+      flex-grow: 1;
+      flex-basis: var(--maximum-sidebar-width);
+   }
+
+   .not-sidebar {
+      flex-basis: 0;
+      flex-grow: 999;
+      min-inline-size: min(var(--minimum-main-width), 100%);
+   }
+}
+
+.responsive-form-input {
+   @property --label-width {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 120px;
+   }
+
+   @property --input-width {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 170px;
+   }
+
+   @property --button-width {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 70px;
+   }
+
+   @property --gap {
+      syntax: '<length>';
+      inherits: false;
+      initial-value: 8px;
+   }
+
+   form {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--gap);
+   }
+
+   .name {
+      flex-grow: 1;
+      flex-basis: var(--label-width);
+   }
+
+   .email {
+      flex-grow: 3;
+      flex-basis: var(--input-width);
+   }
+
+   button {
+      flex-grow: 1;
+      flex-basis: var(--button-width);
+   }
+
+   input {
+      width: 100%;
+      display: block;
+   }
+}
