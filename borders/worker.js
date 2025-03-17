@@ -6,20 +6,20 @@ self.onmessage = (event) => {
    self.postMessage(result);
 }
 
-const borderFn = (i) => createUtilityClass(`.b${i}`, "border-width", `${i}px`)
-const borderRadiusFn = (i, initialValue) => createUtilityClass(`.br${i}`, "border-radius", `${i * initialValue}px`)
+const borderFn = (i) => createUtilityClass(`.b${i}`, [{ property: "border-width", value: `${i}px` }])
+const borderRadiusFn = (i, initialValue) => createUtilityClass(`.br${i}`, [{ property: "border-radius", value: `${i * initialValue}px` }])
 
 function run(state) {
    const NUM_ITERATIONS = 10
    const utilityClasses = [
-      createUtilityClass(".solid", "border-style", "solid"),
-      createUtilityClass(".dashed", "border-style", "dashed"),
-      createUtilityClass(".dotted", "border-style", "dotted"),
-      createUtilityClass(".double", "border-style", "double"),
-      createUtilityClass(".groove", "border-style", "groove"),
-      createUtilityClass(".ridge", "border-style", "ridge"),
-      createUtilityClass(".inset", "border-style", "inset"),
-      createUtilityClass(".outset", "border-style", "outset"),
+      createUtilityClass(".solid", [{ property: "border-style", value: "solid" }]),
+      createUtilityClass(".dashed", [{ property: "border-style", value: "dashed" }]),
+      createUtilityClass(".dotted", [{ property: "border-style", value: "dotted" }]),
+      createUtilityClass(".double", [{ property: "border-style", value: "double" }]),
+      createUtilityClass(".groove", [{ property: "border-style", value: "groove" }]),
+      createUtilityClass(".ridge", [{ property: "border-style", value: "ridge" }]),
+      createUtilityClass(".inset", [{ property: "border-style", value: "inset" }]),
+      createUtilityClass(".outset", [{ property: "border-style", value: "outset" }]),
    ]
    for (let i = 0; i < NUM_ITERATIONS; i++) {
       utilityClasses.push(borderFn(i))

@@ -18,11 +18,10 @@ function createDesignToken(property, value) {
  * @param {string} value - CSS property value
  * @returns {UtilityClassObject} CSS utility class object
  */
-function createUtilityClass(selector, property, value) {
+function createUtilityClass(selector, declarations) {
    return {
       selector,
-      property,
-      value
+      declarations
    }
 }
 
