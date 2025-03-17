@@ -1,0 +1,32 @@
+/* All-side padding */
+.p-0 {
+   padding: 0px;
+}
+.p-1 {
+   padding: 0.25rem; /* 4px */
+}
+.p-2 {
+   padding: 0.5rem; /* 8px */
+}
+.p-3 {
+   padding: 0.75rem; /* 12px */
+}
+.p-4 {
+   padding: 1rem; /* 16px */
+}
+.p-5 {
+   padding: 1.25rem; /* 20px */
+}
+.p-6 {
+   padding: 1.5rem; /* 24px */
+}
+.p-7 {
+   padding: 1.75rem; /* 28px */
+}
+.p-8 {
+   padding: 2rem; /* 32px */
+}
+.px-1 {
+   padding-left: 0.25rem;
+   padding-right: 0.25rem;
+}
