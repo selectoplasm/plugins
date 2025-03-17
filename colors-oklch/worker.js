@@ -35,13 +35,13 @@ function generateCss(lThreshold) {
 
 function generateHtmlAndTokens(name, hue, { center, width, steepness, midpoint, ['max-chroma']: maxChroma }) {
    const tokens = []
-   let html = "<section style='display: flex;'>"
+   let html = "<section style='display: flex; height: 15%;'>"
    for (let i = 0; i < 10; i++) {
       const lightness = lightnessCurve(i)
       const chroma = hue === -1 ? 0 : chromaCurve(i) // neutral sends hue as -1
       const color = `oklch(${lightness}% ${chroma} ${hue})`
       tokens.push(createDesignToken(`color-${name.toLowerCase()}-${i * 100}`, color))
-      html += `<div style='flex-grow: 1;height: 100px; --color: var(--color-${name}-${i * 100}); background-color: var(--color); color: var(--readable-color);'>${i * 100}</div>`
+      html += `<div style='flex-grow: 1; --color: var(--color-${name}-${i * 100}); background-color: var(--color); color: var(--readable-color);'>${i * 100}</div>`
    }
    html += `</section>`
    return { html, tokens }
