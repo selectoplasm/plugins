@@ -7,42 +7,42 @@ self.onmessage = (event) => {
 }
 
 function run(config) {
-   const { html, designTokens } = generateTokens(config)
+   const { html, root } = generateTokensAndHtml(config)
    return {
       html,
-      designTokens,
-      utilityClasses: generateUtilityClasses(config)
+      rulesets: [root, ...generateRulesets(config)]
    }
 }
 
-function generateTokens(config) {
+function generateTokensAndHtml(config) {
    let html = `<section id="spacing"><ul class="spacing">`;
-   const array = []
    let a = parseInt(config["step-of-step"])
    let b = parseInt(config["step"])
    let c = parseInt(config["initial-value"])
+   const declarations = []
    for (let i = 0; i < config["num-iterations"]; i++) {
-      array.push(createDesignToken(`space-${i}`, `${c}px`))
+      declarations.push([`--space-${i}`, `${c}px`])
       html += `<li class="spacer s${i}">&nbsp;</li>`;
       c += b
       b += a
    }
    html += `</ul></section>`;
-   return { html, designTokens: array }
+   const root = createRuleset(':root', declarations)
+   return { html, root }
 }
 
-const spacing = (i) => createUtilityClass(".s" + i, [{ property: "--space", value: `--space-${i}` }])
-const margin = (i) => createUtilityClass(".m" + i, [{ property: "margin", value: `--space-${i}` }])
-const marginX = (i) => createUtilityClass(".mx" + i, [{ property: "margin-left", value: `--space-${i}` }, { property: "margin-right", value: `--space-${i}` }])
-const marginY = (i) => createUtilityClass(".my" + i, [{ property: "margin-top", value: `--space-${i}` }, { property: "margin-bottom", value: `--space-${i}` }])
-const padding = (i) => createUtilityClass(".p" + i, [{ property: "padding", value: `--space-${i}` }])
-const paddingX = (i) => createUtilityClass(".px" + i, [{ property: "padding-left", value: `--space-${i}` }, { property: "padding-right", value: `--space-${i}` }])
-const paddingY = (i) => createUtilityClass(".py" + i, [{ property: "padding-top", value: `--space-${i}` }, { property: "padding-bottom", value: `--space-${i}` }])
-const gap = (i) => createUtilityClass(".g" + i, [{ property: "gap", value: `--space-${i}` }])
+const spacing = (i) => createRuleset(".s" + i, [["--space", `--space-${i}`]])
+const margin = (i) => createRuleset(".m" + i, [["margin", `--space-${i}`]])
+const marginX = (i) => createRuleset(".mx" + i, [["margin-left", `--space-${i}`], ["margin-right", `--space-${i}`]])
+const marginY = (i) => createRuleset(".my" + i, [["margin-top", `--space-${i}`], ["margin-bottom", `--space-${i}`]])
+const padding = (i) => createRuleset(".p" + i, [["padding", `--space-${i}`]])
+const paddingX = (i) => createRuleset(".px" + i, [["padding-left", `--space-${i}`], ["padding-right", `--space-${i}`]])
+const paddingY = (i) => createRuleset(".py" + i, [["padding-top", `--space-${i}`], ["padding-bottom", `--space-${i}`]])
+const gap = (i) => createRuleset(".g" + i, [["gap", `--space-${i}`]])
 
 const fns = [spacing, margin, marginX, marginY, padding, paddingX, paddingY, gap]
 
-function generateUtilityClasses(config) {
+function generateRulesets(config) {
    const array = []
    for (let i = 0; i < config["num-iterations"]; i++) {
       fns.forEach(fn => array.push(fn(i)))

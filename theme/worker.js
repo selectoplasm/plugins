@@ -6,9 +6,10 @@ self.onmessage = (event) => {
 }
 
 function run(config) {
+   const rulesets = generateRulesets()
+   rulesets.push(generateTokens(config))
    return {
-      designTokens: addTokens(config),
-      patternClasses: addPatternClasses(),
+      rulesets,
       html: generateHtml(),
       css: `.light { background: var(--color-neutral-0); }, .dark { background: var(--color-neutral-900); }`
    }
@@ -30,20 +31,21 @@ function generateHtml() {
    return html
 }
 
-function addTokens(config) {
+function generateTokens(config) {
 
    const tokens = []
 
    categories.forEach(category => {
-      tokens.push(createDesignToken(parse(category, "accent"), "light-dark(var(--" + parseShade(category, config['accent-light']) + "), var(--" + parseShade(category, config['accent-dark']) + "))"))
-      tokens.push(createDesignToken(parse(category, "background"), "light-dark(var(--" + parseShade(category, config['background-light']) + "), var(--" + parseShade(category, config['background-dark']) + "))"))
-      tokens.push(createDesignToken(parse(category, "text"), "light-dark(var(--" + parseShade(category, config['text-light']) + "), var(--" + parseShade(category, config['text-dark']) + "))"))
-      tokens.push(createDesignToken(parse(category, "text-invert"), "light-dark(var(--" + parseShade(category, config['text-invert-light']) + "), var(--" + parseShade(category, config['text-invert-dark']) + "))"))
+      tokens.push([parse(category, "accent"), "light-dark(var(--" + parseShade(category, config['accent-light']) + "), var(--" + parseShade(category, config['accent-dark']) + "))"])
+      tokens.push([parse(category, "background"), "light-dark(var(--" + parseShade(category, config['background-light']) + "), var(--" + parseShade(category, config['background-dark']) + "))"])
+      tokens.push([parse(category, "text"), "light-dark(var(--" + parseShade(category, config['text-light']) + "), var(--" + parseShade(category, config['text-dark']) + "))"])
+      tokens.push([parse(category, "text-invert"), "light-dark(var(--" + parseShade(category, config['text-invert-light']) + "), var(--" + parseShade(category, config['text-invert-dark']) + "))"])
    })
-   return tokens
+   const root = createRuleset(":root", tokens)
+   return root
 
    function parse(category, key) {
-      return config.format.replaceAll("$", category).replaceAll("#", key)
+      return "--" + config.format.replaceAll("$", category).replaceAll("#", key)
    }
 
    function parseShade(category, shade) {
@@ -51,24 +53,20 @@ function addTokens(config) {
    }
 }
 
-function addPatternClasses() {
-   const classes = []
+function generateRulesets() {
+   const rulesets = []
    categories.forEach(category => {
-      classes.push(addPatternClass(`.${category}`, [
+      rulesets.push(createRuleset(`.${category}`, [
          ["--color-accent", `--color-${category}-accent`],
          ["--color-background", `--color-${category}-background`],
          ["--color-text", `--color-${category}-text`],
          ["--color-text-invert", `--color-${category}-text-invert`],
       ]))
    })
-   return classes
+   rulesets.push(createRuleset(`.theme-standard`, [
+      ["border-color", "--color-accent"],
+      ["background-color", "--color-background"],
+      ["color", "--color-text"]
+   ]))
+   return rulesets
 }
-
-// function createClass(selector, declarations) {
-//    let css = `.${selector} {`
-//    declarations.forEach(([property, value]) => {
-//       css += `${property}: ${value};`
-//    })
-//    css += `}`
-//    return css
-// }

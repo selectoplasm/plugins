@@ -23,7 +23,7 @@ function run(config) {
    return {
       css: generateCss(config["l-threshold"]),
       html: htmlString,
-      designTokens: tokensArray
+      rulesets: [createRuleset(':root', tokensArray)]
    }
 }
 
@@ -40,7 +40,7 @@ function generateHtmlAndTokens(name, hue, { center, width, steepness, midpoint, 
       const lightness = lightnessCurve(i)
       const chroma = hue === -1 ? 0 : chromaCurve(i) // neutral sends hue as -1
       const color = `oklch(${lightness}% ${chroma} ${hue})`
-      tokens.push(createDesignToken(`color-${name.toLowerCase()}-${i * 100}`, color))
+      tokens.push([`--color-${name.toLowerCase()}-${i * 100}`, color])
       html += `<div style='flex-grow: 1; --color: var(--color-${name}-${i * 100}); background-color: var(--color); color: var(--readable-color);'>${i * 100}</div>`
    }
    html += `</section>`

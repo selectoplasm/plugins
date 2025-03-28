@@ -8,10 +8,10 @@ self.onmessage = (event) => {
 const typeScales = ["minor-second", "major-second", "minor-third", "major-third", "perfect-fourth", "augmented-fourth", "perfect-fifth"];
 
 function run(config) {
-   const designTokens = []
+   const declarations = []
    const typeScaleIndex = config["type-scale"]
-   designTokens.push(createDesignToken("type-scale", "var(--" + typeScales[typeScaleIndex] + ")"))
+   declarations.push(["--type-scale", "var(--" + typeScales[typeScaleIndex] + ")"])
    return {
-      designTokens
+      rulesets: [createRuleset(":root", declarations)]
    }
 }
