@@ -1,4 +1,3 @@
-
 self.onmessage = (event) => {
    const config = event.data;
    const result = run(config);

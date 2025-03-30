@@ -1,5 +1,3 @@
-importScripts("/plugins/sharedScripts.js")
-
 self.onmessage = (event) => {
    const result = run(event.data)
    self.postMessage(result)
@@ -23,7 +21,7 @@ function run(config) {
    return {
       css: generateCss(config["l-threshold"]),
       html: htmlString,
-      rulesets: [createRuleset(':root', tokensArray)]
+      rulesets: [{ selector: ':root', declarations: tokensArray }]
    }
 }
 

@@ -1,9 +1,9 @@
-importScripts("/plugins/sharedScripts.js")
-
 self.onmessage = (event) => {
    const result = run(event.data)
    self.postMessage(result)
 }
+
+const ruleset = (selector, declarations) => ({ selector, declarations })
 
 function run(config) {
    const rulesets = generateRulesets()
@@ -56,14 +56,14 @@ function generateTokens(config) {
 function generateRulesets() {
    const rulesets = []
    categories.forEach(category => {
-      rulesets.push(createRuleset(`.${category}`, [
+      rulesets.push(ruleset(`.${category}`, [
          ["--color-accent", `--color-${category}-accent`],
          ["--color-background", `--color-${category}-background`],
          ["--color-text", `--color-${category}-text`],
          ["--color-text-invert", `--color-${category}-text-invert`],
       ]))
    })
-   rulesets.push(createRuleset(`.theme-standard`, [
+   rulesets.push(ruleset(`.theme-standard`, [
       ["border-color", "--color-accent"],
       ["background-color", "--color-background"],
       ["color", "--color-text"]
