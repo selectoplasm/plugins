@@ -41,7 +41,7 @@ function generateTokens(config) {
       tokens.push([parse(category, "text"), "light-dark(var(--" + parseShade(category, config['text-light']) + "), var(--" + parseShade(category, config['text-dark']) + "))"])
       tokens.push([parse(category, "text-invert"), "light-dark(var(--" + parseShade(category, config['text-invert-light']) + "), var(--" + parseShade(category, config['text-invert-dark']) + "))"])
    })
-   const root = createRuleset(":root", tokens)
+   const root = ruleset(":root", tokens)
    return root
 
    function parse(category, key) {
