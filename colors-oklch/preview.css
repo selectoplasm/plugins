@@ -1,5 +1,7 @@
-/* *[style*="--color"] {
+/* *[style*="--color-string"] {
    --l: clamp(0, (var(--l-threshold) / l - 1) * infinity, 1);
-   --readable-color: oklch(from var(--color) var(--l) 0 h);
+   --readable-color: oklch(from var(--color-string) var(--l) 0 h);
    color: var(--readable-color) !important;
 } */
+
+/* removed since it's in declarations.css in @selectoplasm/asi */
