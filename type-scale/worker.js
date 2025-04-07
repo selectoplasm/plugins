@@ -5,7 +5,7 @@ self.onmessage = (event) => {
 
 const ruleset = (selector, declarations) => ({ selector, declarations })
 
-const typeScales = ["minor-second", "major-second", "minor-third", "major-third", "perfect-fourth", "augmented-fourth", "perfect-fifth"];
+const typeScales = ["minor-second", "major-second", "minor-third", "major-third", "perfect-fourth", "augmented-fourth", "perfect-fifth", "minor-sixth"];
 
 function run(config) {
    const declarations = []
