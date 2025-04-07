@@ -1,0 +1,47 @@
+.font-serif {
+    font-family: Georgia, "Times New Roman", Times, Palatino, "Palatino Linotype", serif;
+}
+
+.font-sans-serif {
+    font-family: Arial, Helvetica, "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-monospace {
+    font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+}
+
+.font-friendly {
+    font-family: "Comic Sans MS", "Comic Sans", "Marker Felt", casual, cursive;
+}
+
+.font-elegant {
+    font-family: Didot, Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+}
+
+.font-utility {
+    font-family: Verdana, Tahoma, "Trebuchet MS", Arial, sans-serif;
+}
+
+.font-code {
+    font-family: "Source Code Pro", Menlo, Consolas, Monaco, "Liberation Mono", monospace;
+}
+
+.font-modern {
+    font-family: Futura, "Century Gothic", Calibri, Optima, sans-serif;
+}
+
+.font-display {
+    font-family: Impact, "Gill Sans", "Arial Black", "Helvetica Black", sans-serif;
+}
+
+.font-handwriting {
+    font-family: "Brush Script MT", "Brush Script Std", "Dancing Script", "Segoe Script", cursive;
+}
+
+.font-system {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+.font-technical {
+    font-family: "Franklin Gothic", "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", sans-serif;
+}
