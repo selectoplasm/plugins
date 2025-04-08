@@ -1,0 +1,8 @@
+.animated-bg {
+   background: linear-gradient(var(--gradient-angle),
+         var(--color-1),
+         var(--color-2),
+         var(--color-1));
+   background-size: 400% 400%;
+   animation: gradient-flow var(--animation-speed) ease infinite;
+}
