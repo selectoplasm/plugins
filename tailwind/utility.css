@@ -50,3 +50,23 @@
   font-size: 8rem;
   line-height: 1;	128px
 }
+
+.items-center {
+   align-items: center;
+}
+
+.justify-around {
+   justify-content: space-around;
+}
+
+.justify-between {
+   justify-content: space-between;
+}
+
+.justify-center {
+   justify-content: center;
+}
+
+.flex {
+   display: flex;
+}

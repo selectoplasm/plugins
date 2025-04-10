@@ -19,6 +19,8 @@ function run() {
    rulesets.push(ruleset(".vh100", [["height", "100vh"]]));
    rulesets.push(ruleset(".vw100", [["width", "100vw"]]));
    rulesets.push(ruleset(".font-big", [["font-size", "2rem"]]));
+   rulesets.push(ruleset(".list-style-none", [["list-style", "none"]]));
+
 
    return {
       rulesets
