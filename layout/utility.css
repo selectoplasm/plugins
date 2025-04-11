@@ -1,0 +1,45 @@
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+}
+
+.fill-width {
+    width: 100%;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.vh100 {
+    height: 100vh;
+}
+
+.vw100 {
+    width: 100vw;
+}
+
+.no-list {
+    list-style: none;
+}
