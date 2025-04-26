@@ -5,6 +5,6 @@ self.onmessage = (event) => {
 
 function run(config) {
    return {
-      templates
+
    }
 }
