@@ -3,12 +3,7 @@ self.onmessage = (event) => {
    self.postMessage(result);
 }
 
-const templates = [
-   "header nav ul li a",
-   "main section article > header, p, footer"
-]
-
-function run(_) {
+function run(config) {
    return {
       templates
    }
